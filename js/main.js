@@ -7229,87 +7229,61 @@
           s = (t(60821), t(36742)),
           i = t(98781);
 
-        function n($) {
-          let e, button, socket;
-
-          return {
-            c() {
-              // Create leaderboard div
-              e = (0, x.ND4)("div");
-              e.textContent = "This is the player leaderboard.";
-              window.onload = function () {
-                // Create a button
-                const button = document.createElement("button");
-                button.innerText = "Connect WebSocket";
-                button.style.position = "fixed";
-                button.style.top = "10px";
-                button.style.right = "10px";
-                button.style.padding = "10px 20px";
-                button.style.backgroundColor = "#4CAF50";
-                button.style.color = "white";
-                button.style.border = "none";
-                button.style.borderRadius = "5px";
-                button.style.cursor = "pointer";
-
-                // Add the button to the page
-                document.body.appendChild(button);
-
-                // Add click event to connect to WebSocket
-                button.addEventListener("click", function () {
-                  // Initialize WebSocket connection
-                  const socket = new WebSocket(
-                    "ws://localhost:6969/"
-                  );
-
-                  // WebSocket open event
-                  socket.onopen = function () {
-                    console.log("WebSocket connection established");
-                    socket.send(JSON.stringify({ action: "connect" }));
-                  };
-
-                  // WebSocket message event
-                  socket.onmessage = function (event) {
-                    console.log("Message from server:", event.data);
-                  };
-
-                  // WebSocket error event
-                  socket.onerror = function (error) {
-                    console.error("WebSocket Error:", error);
-                  };
-
-                  // WebSocket close event
-                  socket.onclose = function () {
-                    console.log("WebSocket connection closed");
-                  };
-                });
-              };
-            },
-            m($, t) {
-              // Mount the leaderboard div
-              (0, x.Yry)($, e, t);
-              // Append the button to the leaderboard div
-              e.appendChild(button);
-            },
-            p: x.lQ1,
-            d($) {
-              if ($) {
-                // Remove leaderboard div
-                (0, x.YoD)(e);
-                // Remove button event listener and button itself
-                if (button) {
-                  button.removeEventListener(
-                    "click" /* the listener function */
-                  );
-                  button.remove();
+          window.onload = function() {
+            function n($) {
+                let e, button;
+                return {
+                    c() {
+                        // Create leaderboard div
+                        e = document.createElement('div');
+                        e.textContent = "This is the player leaderboard.";
+                        
+                        // Create a button
+                        button = document.createElement('button');
+                        button.innerText = 'Connect to WebSocket';
+                        button.style.padding = '10px';
+                        button.style.marginTop = '10px';
+                        button.style.backgroundColor = '#4CAF50';
+                        button.style.color = 'white';
+                        button.style.border = 'none';
+                        button.style.cursor = 'pointer';
+        
+                        // Add WebSocket connection on button click
+                        button.addEventListener('click', function() {
+                            const socket = new WebSocket('ws://your-websocket-server-url');
+        
+                            socket.onopen = function() {
+                                console.log('WebSocket connection established');
+                                socket.send(JSON.stringify({ action: 'connect' }));
+                            };
+        
+                            socket.onmessage = function(event) {
+                                console.log('Message from server:', event.data);
+                            };
+        
+                            socket.onerror = function(error) {
+                                console.error('WebSocket Error:', error);
+                            };
+        
+                            socket.onclose = function() {
+                                console.log('WebSocket connection closed');
+                            };
+                        });
+                    },
+                    m($, t) {
+                        document.body.appendChild(e); // Append leaderboard
+                        e.appendChild(button); // Append button to leaderboard
+                    },
+                    d($) {
+                        if (e && e instanceof Node) {
+                            e.remove(); // Remove leaderboard
+                        }
+                    }
                 }
-                // Close WebSocket connection if open
-                if (socket && socket.readyState === WebSocket.OPEN) {
-                  socket.close();
-                }
-              }
-            },
-          };
-        }
+            }
+        
+            n(); // Initialize leaderboard and button
+        };
         class a extends x.r7T {
           constructor($) {
             super(),
