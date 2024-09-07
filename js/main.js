@@ -3014,6 +3014,7 @@
                         }
                     }
                 }
+                
                 let f = (0, i.T5)(u.A.inputs),
                     _ = (f.subscribe(() => u.A.buj()), g.pB.set("Play as tab " + (1 + (0, i.Jt)(g.xR))), u.A.on("zrVIMz", ($, e) => {
                         "activeTabContext" === $ ? (g.xR.set(e), e = (0, h.Rr)(1 + (0, i.Jt)(g.xR)), (0, i.Jt)(g.pB) != e && g.pB.set(e)) : "linkTabNames" !== $ && "linkTabSkins" !== $ && "linkTabTags" !== $ || f.set((0, i.Jt)(f))

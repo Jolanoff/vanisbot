@@ -10974,7 +10974,7 @@
             function n(t, e, r) {
                 var n = {},
                     i = a(function() {
-                        return !!s[t]() || "​" != "​" [t]()
+                        return !!s[t]() || "  " != "  " [t]()
                     }),
                     e = n[t] = i ? e(h) : s[t];
                 r && (n[r] = e), o(o.P + o.F * i, "String", n)
@@ -10992,7 +10992,7 @@
             t.exports = n
         },
         78451: t => {
-            t.exports = "\t\n\v\f\r   ᠎             　\u2028\u2029\ufeff"
+            t.exports = "\t\n\v\f\r                  \u2028\u2029\ufeff"
         },
         2780: (t, e, r) => {
             function n() {
