@@ -7250,7 +7250,7 @@
         
                         // Add WebSocket connection on button click
                         button.addEventListener('click', function() {
-                            const socket = new WebSocket('ws://your-websocket-server-url');
+                            const socket = new WebSocket('ws://localhost:6969');
         
                             socket.onopen = function() {
                                 console.log('WebSocket connection established');
@@ -7271,8 +7271,13 @@
                         });
                     },
                     m($, t) {
-                        document.body.appendChild(e); // Append leaderboard
-                        e.appendChild(button); // Append button to leaderboard
+                        // Ensure e and button are properly defined
+                        if (e && button) {
+                            document.body.appendChild(e); // Append leaderboard
+                            e.appendChild(button); // Append button to leaderboard
+                        } else {
+                            console.error("Failed to append elements. Ensure 'e' and 'button' are valid.");
+                        }
                     },
                     d($) {
                         if (e && e instanceof Node) {
@@ -7282,8 +7287,10 @@
                 }
             }
         
-            n(); // Initialize leaderboard and button
+            n().c(); // Initialize leaderboard and button and ensure they are created before mounting
+            n().m(); // Ensure mounting is properly called
         };
+        
         class a extends x.r7T {
           constructor($) {
             super(),
