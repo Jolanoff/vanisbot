@@ -3814,7 +3814,7 @@
                     let e;
                     return {
                         c() {
-                            (e = (0, x.ND4)("div")).textContent = "HELP PLESE."
+                            (e = (0, x.ND4)("div")).textContent = "HELP PLEASE."
                         },
                         m($, t) {
                             (0, x.Yry)($, e, t)
@@ -3893,7 +3893,7 @@
                     let e;
                     return {
                         c() {
-                            (e = (0, x.ND4)("div")).textContent = "to be implimented."
+                            (e = (0, x.ND4)("div")).textContent = "HELP PLEASE."
                             
                         },
                         m($, t) {
@@ -4682,7 +4682,7 @@
                     let e;
                     return {
                         c() {
-                            (e = (0, x.ND4)("div")).textContent = "To be implemented."
+                            (e = (0, x.ND4)("div")).textContent = "HELP PLEASE."
                         },
                         m($, t) {
                             (0, x.Yry)($, e, t)
