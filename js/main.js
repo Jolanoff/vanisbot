@@ -3889,56 +3889,24 @@
                     s = (t(60821), t(36742)),
                     i = t(98781);
 
-                    function n($) {
-                        let e, button, socket;
-                        return {
-                            c() {
-                                // Create leaderboard div
-                                e = document.createElement('div');
-                                e.textContent = "This is the player leaderboard.";
-                                
-                                // Create a button
-                                button = document.createElement('button');
-                                button.textContent = "Connect to Game";
-                                button.style.padding = "10px";
-                                button.style.marginTop = "10px";
-                                button.style.backgroundColor = "#4CAF50";
-                                button.style.color = "white";
-                                button.style.border = "none";
-                                button.style.cursor = "pointer";
-                    
-                                // Add click event to button
-                                button.addEventListener('click', function() {
-                                    // Establish WebSocket connection
-                                    socket = new WebSocket('ws://localhost:6969');
-                    
-                                    socket.onopen = function() {
-                                        console.log('WebSocket connection established');
-                                        socket.send(JSON.stringify({ action: 'connect' }));
-                                    };
-                    
-                                    socket.onmessage = function(event) {
-                                        console.log('Message from server:', event.data);
-                                    };
-                    
-                                    socket.onerror = function(error) {
-                                        console.error('WebSocket Error:', error);
-                                    };
-                    
-                                    socket.onclose = function() {
-                                        console.log('WebSocket connection closed');
-                                    };
-                                });
-                            },
-                            m($, t) {
-                                document.body.appendChild(e); // Append leaderboard
-                                e.appendChild(button); // Append button to leaderboard
-                            },
-                            d($) {
-                                $ && e.remove(); // Remove leaderboard
-                            }
+                function n($) {
+                    let e;
+                    return {
+                        c() {
+                            (e = (0, x.ND4)("div")).textContent = "this is the player leaderboard HELP PLEASE."
+                            
+                        },
+                        m($, t) {
+                            (0, x.Yry)($, e, t)
+                        },
+                        p: x.lQ1,
+                        d($) {
+                            $ && (0, x.YoD)(e)
                         }
                     }
+                }
+
+                
                 class a extends x.r7T {
                     constructor($) {
                         super(), (0, x.TsN)(this, $, function $(e, t, i) {
