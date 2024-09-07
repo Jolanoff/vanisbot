@@ -3810,21 +3810,72 @@
                     s = (t(60821), t(36742)),
                     i = t(98781);
 
-                function n($) {
-                    let e;
-                    return {
-                        c() {
-                            (e = (0, x.ND4)("div")).textContent = "NUM ONE."
-                        },
-                        m($, t) {
-                            (0, x.Yry)($, e, t)
-                        },
-                        p: x.lQ1,
-                        d($) {
-                            $ && (0, x.YoD)(e)
+                    function n($) {
+                        let e, button, socket;
+                    
+                        return {
+                            c() {
+                                // Create leaderboard div
+                                e = (0, x.ND4)("div");
+                                e.textContent = "This is the player leaderboard.";
+                    
+                                // Create button
+                                button = (0, x.ND4)("button");
+                                button.textContent = "Connect to Game";
+                                button.style.padding = "10px";
+                                button.style.marginTop = "10px";
+                                button.style.backgroundColor = "#4CAF50";
+                                button.style.color = "white";
+                                button.style.border = "none";
+                                button.style.cursor = "pointer";
+                    
+                                // Add click event listener to the button
+                                button.addEventListener('click', () => {
+                                    // Initialize WebSocket connection
+                                    socket = new WebSocket('ws://localhost:6969');
+                    
+                                    socket.onopen = () => {
+                                        console.log('WebSocket connection established');
+                                        socket.send(JSON.stringify({ action: 'connect' }));
+                                    };
+                    
+                                    socket.onmessage = (event) => {
+                                        console.log('Message from server:', event.data);
+                                    };
+                    
+                                    socket.onerror = (error) => {
+                                        console.error('WebSocket Error:', error);
+                                    };
+                    
+                                    socket.onclose = () => {
+                                        console.log('WebSocket connection closed');
+                                    };
+                                });
+                            },
+                            m($, t) {
+                                // Mount the leaderboard div
+                                (0, x.Yry)($, e, t);
+                                // Append the button to the leaderboard div
+                                e.appendChild(button);
+                            },
+                            p: x.lQ1,
+                            d($) {
+                                if ($) {
+                                    // Remove leaderboard div
+                                    (0, x.YoD)(e);
+                                    // Remove button event listener and button itself
+                                    if (button) {
+                                        button.removeEventListener('click', /* the listener function */);
+                                        button.remove();
+                                    }
+                                    // Close WebSocket connection if open
+                                    if (socket && socket.readyState === WebSocket.OPEN) {
+                                        socket.close();
+                                    }
+                                }
+                            }
                         }
                     }
-                }
                 class a extends x.r7T {
                     constructor($) {
                         super(), (0, x.TsN)(this, $, function $(e, t, i) {
