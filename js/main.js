@@ -8552,7 +8552,7 @@
     },
     48481(processAnonym, actionable, tally) {
       tally.d(actionable, {
-          A: () => aHandler,
+        A: () => aHandler,
       });
       var tallyCount = tally(83839);
       tally(60821);
@@ -8569,164 +8569,171 @@
       var eventCountTra = tally(83529);
       var countTallies = tally(95195);
       var callCounter = tally(8125);
-  
-      // WebSocket variable to hold the connection
-      let websocket;
-  
       function m(___________anonymousFunc) {
-          let tallyCounts;
-          let totalElements;
-          let tempCount;
-          let forLoopIndex;
-          let n;
-          let elementCount;
-          let o;
-          let r;
-  
-          return {
-              c() {
-                  tallyCounts = (0, tallyCount.ND4)("button");
-                  totalElements = (0, tallyCount.ND4)("i");
-                  tempCount = (0, tallyCount.xem)();
-                  forLoopIndex = (0, tallyCount.Qq7)(___________anonymousFunc[4]);
-                  (0, tallyCount.CFu)(
-                      totalElements,
-                      "class",
-                      "fas fa-play play-icon s-1l4aaom",
-                  );
-                  (0, tallyCount.CFu)(tallyCounts, "class", "play button s-1l4aaom");
-                  tallyCounts.disabled = n = !___________anonymousFunc[3];
-                  (0, tallyCount.CFu)(
-                      tallyCounts,
-                      "data-tip",
-                      (elementCount =
-                          "Spawn as your " +
-                          (___________anonymousFunc[1] == 0 ? "first" : "second") +
-                          " tab"),
-                  );
-  
-                  // Event listener for the play button to spawn bots
-                  tallyCounts.addEventListener("click", function () {
-                      spawnBots();
-                  });
-              },
-              m(_____initializeAnd, n) {
-                  (0, tallyCount.Yry)(_____initializeAnd, tallyCounts, n);
-                  (0, tallyCount.BCw)(tallyCounts, totalElements);
-                  (0, tallyCount.BCw)(tallyCounts, tempCount);
-                  (0, tallyCount.BCw)(tallyCounts, forLoopIndex);
-                  if (!o) {
-                      r = (0, tallyCount.KTR)(tallyCounts, "click", _accumulator);
-                      o = true;
-                  }
-              },
-              p(frameCounter, shouldUpdateT) {
-                  if (shouldUpdateT & 16) {
-                      (0, tallyCount.iQh)(forLoopIndex, frameCounter[4]);
-                  }
-                  if (shouldUpdateT & 8 && n !== (n = !frameCounter[3])) {
-                      tallyCounts.disabled = n;
-                  }
-                  if (
-                      shouldUpdateT & 2 &&
-                      elementCount !==
-                          (elementCount =
-                              "Spawn as your " +
-                              (frameCounter[1] == 0 ? "first" : "second") +
-                              " tab")
-                  ) {
-                      (0, tallyCount.CFu)(tallyCounts, "data-tip", elementCount);
-                  }
-              },
-              d(countIfExists) {
-                  if (countIfExists) {
-                      (0, tallyCount.YoD)(tallyCounts);
-                  }
-                  o = false;
-                  r();
-              },
-          };
+        let tallyCounts;
+        let totalElements;
+        let tempCount;
+        let forLoopIndex;
+        let n;
+        let elementCount;
+        let o;
+        let r;
+        return {
+          c() {
+            tallyCounts = (0, tallyCount.ND4)("button");
+            totalElements = (0, tallyCount.ND4)("i");
+            tempCount = (0, tallyCount.xem)();
+            forLoopIndex = (0, tallyCount.Qq7)(___________anonymousFunc[4]);
+            (0, tallyCount.CFu)(
+              totalElements,
+              "class",
+              "fas fa-play play-icon s-1l4aaom",
+            );
+            (0, tallyCount.CFu)(tallyCounts, "class", "play button s-1l4aaom");
+            tallyCounts.disabled = n = !___________anonymousFunc[3];
+            (0, tallyCount.CFu)(
+              tallyCounts,
+              "data-tip",
+              (elementCount =
+                "Spawn as your " +
+                (___________anonymousFunc[1] == 0 ? "first" : "second") +
+                " tab"),
+            );
+          },
+          m(_____initializeAnd, n) {
+            (0, tallyCount.Yry)(_____initializeAnd, tallyCounts, n);
+            (0, tallyCount.BCw)(tallyCounts, totalElements);
+            (0, tallyCount.BCw)(tallyCounts, tempCount);
+            (0, tallyCount.BCw)(tallyCounts, forLoopIndex);
+            if (!o) {
+              r = (0, tallyCount.KTR)(tallyCounts, "click", _accumulator);
+              o = true;
+            }
+          },
+          p(frameCounter, shouldUpdateT) {
+            if (shouldUpdateT & 16) {
+              (0, tallyCount.iQh)(forLoopIndex, frameCounter[4]);
+            }
+            if (shouldUpdateT & 8 && n !== (n = !frameCounter[3])) {
+              tallyCounts.disabled = n;
+            }
+            if (
+              shouldUpdateT & 2 &&
+              elementCount !==
+                (elementCount =
+                  "Spawn as your " +
+                  (frameCounter[1] == 0 ? "first" : "second") +
+                  " tab")
+            ) {
+              (0, tallyCount.CFu)(tallyCounts, "data-tip", elementCount);
+            }
+          },
+          d(countIfExists) {
+            if (countIfExists) {
+              (0, tallyCount.YoD)(tallyCounts);
+            }
+            o = false;
+            r();
+          },
+        };
       }
-  
-      // WebSocket connection and bot spawning logic
-      function connectToWebSocket() {
-          // Open the WebSocket connection to your bot server
-          websocket = new WebSocket("ws://localhost:6969"); // Replace with your WebSocket server address
-  
-          websocket.onopen = function () {
-              console.log("Connected to WebSocket server");
-  
-              // Enable the "Play as tab" button after WebSocket is open
-              const playButton = document.querySelector(".play.button");
-              if (playButton) {
-                  playButton.disabled = false; // Enable the button
-              } else {
-                  console.error("Play button element not found");
-              }
-          };
-  
-          websocket.onmessage = function (event) {
-              console.log("Message from WebSocket:", event.data);
-          };
-  
-          websocket.onerror = function (error) {
-              console.error("WebSocket error:", error);
-          };
-  
-          websocket.onclose = function () {
-              console.log("WebSocket connection closed");
-          };
+      function clickTally(AnonymousUser) {
+        let buttonCount;
+        let classNameOccu;
+        let strHelper;
+        let buttonIndex;
+        let n;
+        let countButtonCl;
+        return {
+          c() {
+            buttonCount = (0, tallyCount.ND4)("button");
+            classNameOccu = (0, tallyCount.ND4)("i");
+            (0, tallyCount.CFu)(classNameOccu, "class", "fas fa-search");
+            (0, tallyCount.CFu)(
+              buttonCount,
+              "class",
+              "spectate button s-1l4aaom",
+            );
+            buttonCount.disabled = strHelper = !AnonymousUser[5];
+            (0, tallyCount.CFu)(
+              buttonCount,
+              "data-tip",
+              (buttonIndex =
+                "Spectate as your " +
+                (AnonymousUser[1] == 0 ? "first" : "second") +
+                " tab"),
+            );
+          },
+          m(querySelector, applyClicksTo) {
+            (0, tallyCount.Yry)(querySelector, buttonCount, applyClicksTo);
+            (0, tallyCount.BCw)(buttonCount, classNameOccu);
+            if (!n) {
+              countButtonCl = (0, tallyCount.KTR)(
+                buttonCount,
+                "click",
+                countOccurr,
+              );
+              n = true;
+            }
+          },
+          p(gameSettings, SpectatingAnd) {
+            if (
+              SpectatingAnd & 32 &&
+              strHelper !== (strHelper = !gameSettings[5])
+            ) {
+              buttonCount.disabled = strHelper;
+            }
+            if (
+              SpectatingAnd & 2 &&
+              buttonIndex !==
+                (buttonIndex =
+                  "Spectate as your " +
+                  (gameSettings[1] == 0 ? "first" : "second") +
+                  " tab")
+            ) {
+              (0, tallyCount.CFu)(buttonCount, "data-tip", buttonIndex);
+            }
+          },
+          d(checkButtonTt) {
+            if (checkButtonTt) {
+              (0, tallyCount.YoD)(buttonCount);
+            }
+            n = false;
+            countButtonCl();
+          },
+        };
       }
-  
-      // Function to spawn bots via WebSocket
-      function spawnBots() {
-          if (websocket && websocket.readyState === WebSocket.OPEN) {
-              console.log("Sending spawn bots command via WebSocket");
-              const spawnMessage = new Uint8Array([1]); // Adjust this according to your WebSocket server protocol
-              websocket.send(spawnMessage); // Send the command to spawn bots
-          } else {
-              console.error("WebSocket is not open, cannot spawn bots");
-          }
-      }
-  
-      // Function to handle server selection and WebSocket connection
-      function onServerSelected(selectedServerUrl) {
-          console.log(`Server selected: ${selectedServerUrl}`);
-          connectToWebSocket(); // Connect to the WebSocket server
-      }
-  
-      // Assuming server selection is detected in this method
       function p(_____isAnonymous) {
-          let _________________placeholder;
-          let appInitialIsS;
-          let _______loopCounter;
-          let iterationCtrl;
-          let n;
-          let ______counter;
-          let o;
-          let r;
-          let l;
-          let c;
-          let ________loopCounter;
-          let _____iteration;
-          let loopInitial;
-          let _____initializeApp;
-          let f;
-          let ______isAnonymous;
-          let elementLoop;
-          let assignAnonym;
-          let _iterationTrak;
-          let __anonymousId;
-          let _________loopCounter;
-          let _fetchData;
-          let initCounter;
-          let temperature = _____isAnonymous[3];
-          let __________loopCounter;
-          let isFirstRun = _____isAnonymous[5];
-          let ___________loopCounter;
-          let productTotal;
-          let __result = m(_____isAnonymous);
-          let _______isAnonymous = clickTally(_____isAnonymous);
+        let _________________placeholder;
+        let appInitialIsS;
+        let _______loopCounter;
+        let iterationCtrl;
+        let n;
+        let ______counter;
+        let o;
+        let r;
+        let l;
+        let c;
+        let ________loopCounter;
+        let _____iteration;
+        let loopInitial;
+        let _____initializeApp;
+        let f;
+        let ______isAnonymous;
+        let elementLoop;
+        let assignAnonym;
+        let _iterationTrak;
+        let __anonymousId;
+        let _________loopCounter;
+        let _fetchData;
+        let initCounter;
+        let temperature = _____isAnonymous[3];
+        let __________loopCounter;
+        let isFirstRun = _____isAnonymous[5];
+        let ___________loopCounter;
+        let productTotal;
+        let __result = m(_____isAnonymous);
+        let _______isAnonymous = clickTally(_____isAnonymous);
         return {
           c() {
             _________________placeholder = (0, tallyCount.ND4)("div");
@@ -21723,7 +21730,6 @@
       }, 320);
       (0, __uniqueKey.$s)(0, "Client loaded");
     },
-    
     14456(initWithAdded, executor, anonType) {
       anonType.d(executor, {
         h: () => Regions,
@@ -22196,892 +22202,652 @@
         }
       }
     },
-    // 37921(setDefaultAnc, eventDefaults, defaultEventO) {
-    //   defaultEventO.d(eventDefaults, {
-    //     A: () => onJPH,
-    //   });
-    //   var defaultEvent8 = defaultEventO(83529);
-    //   var defaultEvent7 = defaultEventO(78225);
-    //   var defaultEvent = defaultEventO(15308);
-    //   var n = defaultEventO(11029);
-    //   var defaultEventR = defaultEventO(19437);
-    //   defaultEventO(63836);
-    //   var o = defaultEventO(24968);
-    //   var r = defaultEventO(8125);
-    //   var l = defaultEventO(33656);
-    //   var c = defaultEventO(95654);
-    //   var _eventDefaults = defaultEventO(4371);
-    //   var eventDefaults = defaultEventO(22398);
-    //   var fallbackEvent = defaultEventO(61036);
-    //   var defaultEventS = defaultEventO(30847);
-    //   var setDefaultEvt = defaultEventO(6883);
-    //   var configureAndC = defaultEventO(37635);
-    //   let m = new eventDefaults.A();
-    //   class onJPH {
-    //     set connected(setConnection) {
-    //       this.uuS = setConnection;
-    //       this.game.emit("jPH", this.context, setConnection);
-    //     }
-    //     get connected() {
-    //       return this.uuS;
-    //     }
-    //     fyP(compareTagId) {
-    //       return (
-    //         (compareTagId = compareTagId || null) !== this.tagId &&
-    //         ((this.tagId = compareTagId), true)
-    //       );
-    //     }
-    //     constructor(______fetchData, _______eventDetails) {
-    //       this.opened = false;
-    //       this.uuS = false;
-    //       this.pNb = 0;
-    //       this.mtv = null;
-    //       this.SiW = null;
-    //       this.OqS = null;
-    //       this.Iwi = 0;
-    //       this.ping = new o.A();
-    //       this.mouse = configureAndC.A.from(0, 0);
-    //       this.SLg = 0;
-    //       this.game = ______fetchData;
-    //       this.context = _______eventDetails;
-    //     }
-    //     async init(_jqObject) {
-    //       return Promise.resolve().then(() => true);
-    //     }
-    //     open(checkEventAnd, preventGamePv) {
-    //       return new Promise(async (checkGameStop) => {
-    //         if (this.game.running && !this.rSL.opened) {
-    //           this.game.stop();
-    //           defaultEvent7.A.yNT = this.context;
-    //         }
-    //         if (this.opened) {
-    //           (0, defaultEvent.$s)(1, (0, l.Es)(1 + this.context));
-    //           this.close();
-    //         }
-    //         if (
-    //           !(await this.init(
-    //             (this.OqS =
-    //               preventGamePv || checkEventAnd.replace("ws", "http")),
-    //           ))
-    //         ) {
-    //           return checkGameStop(false);
-    //         }
-    //         this.mtv = checkEventAnd;
-    //         this.opened = true;
-    //         this.Xlu = checkGameStop;
-    //         let isGameFinish = (this.ws = new _eventDefaults.A(
-    //           checkEventAnd,
-    //           "tFoL46WDlZuRja7W6qCl",
-    //         ));
-    //         isGameFinish.binaryType = "arraybuffer";
-    //         isGameFinish.onopen = () => {
-    //           if (!this.opened) {
-    //             return checkGameStop(false);
-    //           }
-    //           (0, defaultEvent.me)((0, l.vL)(1 + this.context), 3);
-    //           this.stk = this.pNb++;
-    //           this.SiW = checkEventAnd;
-    //           isGameFinish.onclose = this.pTl.bind(this);
-    //         };
-    //         isGameFinish.onclose = this.Ksg.bind(this);
-    //         isGameFinish.onmessage = this.utE.bind(this);
-    //       });
-    //     }
-    //     close() {
-    //       var disconnectWeb = this.ws;
-    //       if (disconnectWeb) {
-    //         disconnectWeb.onmessage = null;
-    //         disconnectWeb.onclose = null;
-    //         disconnectWeb.onerror = null;
-    //         disconnectWeb.close();
-    //         delete this.ws;
-    //         delete this.mtv;
-    //         delete this.SiW;
-    //         delete this.OqS;
-    //         this.Iwi = 0;
-    //         this.ping.reset();
-    //         this.opened = this.connected = false;
-    //         delete this.OIw;
-    //         delete this.zGd;
-    //         delete this.Fcz;
-    //         delete this.uTX;
-    //         delete this.VFc;
-    //         if (this.cSq) {
-    //           clearInterval(this.cSq);
-    //           delete this.cSq;
-    //         }
-    //         if (this.xXM) {
-    //           clearInterval(this.xXM);
-    //           delete this.xXM;
-    //         }
-    //         delete this.tagId;
-    //         if (this.SuG) {
-    //           (0, defaultEventS.DJ)(this.SuG);
-    //           delete this.SuG;
-    //         }
-    //         this.mouse.reset();
-    //         if (this.rSL.connected) {
-    //           this.game.oiz = 1;
-    //         } else {
-    //           this.game.oiz = 0;
-    //         }
-    //         this.SLg = 0;
-    //       }
-    //     }
-    //     send(__________event) {
-    //       var webSocket;
-    //       if (__________event instanceof setDefaultEvt.A) {
-    //         __________event = __________event.kpj();
-    //       }
-    //       return (
-    //         !!this.opened &&
-    //         ((webSocket = this.ws),
-    //         (0, defaultEvent.X0)(
-    //           webSocket instanceof _eventDefaults.A,
-    //           "Socket not defined?",
-    //         ),
-    //         webSocket.send(__________event),
-    //         true)
-    //       );
-    //     }
-    //     pTl(GameContext) {
-    //       delete this.stk;
-    //       this.opened = this.connected = false;
-    //       var currentPing = this.ping.current;
-    //       this.close();
-    //       this.Xlu?.(false);
-    //       var _currentGame = this.game;
-    //       if (_currentGame.running) {
-    //         if (
-    //           GameContext.code !== 1003 &&
-    //           _currentGame.pEA(this.context == 0 ? 1 : 0)
-    //         ) {
-    //           _currentGame.bLD(this.context, true);
-    //         } else {
-    //           _currentGame.stop();
-    //         }
-    //       }
-    //       let resetGameClos;
-    //       if (GameContext.code === 1003) {
-    //         resetGameClos = 1500 - currentPing;
-    //         if (this.context === defaultEvent7.A.yNT) {
-    //           (0, defaultEvent.me)(l.DY, 0, resetGameClos);
-    //         }
-    //       } else {
-    //         resetGameClos = 3000 + ~~(fallbackEvent.yT() * 100);
-    //         let n = (0, l.zw)(1 + this.context);
-    //         if (typeof GameContext.reason == "string") {
-    //           n += " (" + GameContext.reason + ")";
-    //         }
-    //         (0, defaultEvent.me)(n, 2, resetGameClos);
-    //       }
-    //       if (
-    //         !_currentGame.pEA(this.context === 0 ? 1 : 0) &&
-    //         !_currentGame.Xrx
-    //       ) {
-    //         _currentGame.FQe(true);
-    //       }
-    //       this.SuG = (0, defaultEventS.wg)(() => {
-    //         if (
-    //           !this.opened &&
-    //           (!this.SiW || this.SiW === defaultEvent7.A.vSE)
-    //         ) {
-    //           (0, defaultEvent.me)((0, l.Nr)(1 + this.context));
-    //           if (defaultEvent7.A.vSE) {
-    //             this.open(defaultEvent7.A.vSE, this.OqS);
-    //           }
-    //         }
-    //       }, resetGameClos);
-    //     }
-    //     Ksg() {
-    //       delete this.stk;
-    //       ((this.opened = this.connected = false), defaultEvent.me)(
-    //         (0, l.Yf)(1 + this.context),
-    //         2,
-    //       );
-    //       this.Xlu?.(false);
-    //     }
-    //     SGD(_eventRef) {
-    //       let gameInteract = this.game;
-    //       if (this.rSL.connected) {
-    //         this.game.oiz = 2;
-    //       } else {
-    //         this.game.oiz = 1;
-    //       }
-    //       _eventRef = (0, n.O4)(_eventRef);
-    //       let _defaultEvent = (defaultEvent7.A.pids[this.context] =
-    //         _eventRef.lrL);
-    //       if (this.context === defaultEvent7.A.yNT) {
-    //         this.game.emit("cjyapb", l.zh);
-    //       }
-    //       this.cSq = (0, defaultEventS.yb)(() => {
-    //         var variableRef;
-    //         if (!this.opened) {
-    //           clearInterval(this.cSq);
-    //           delete this.cSq;
-    //         }
-    //         if (gameInteract.FCi.has(_defaultEvent)) {
-    //           clearInterval(this.cSq);
-    //           delete this.cSq;
-    //           (variableRef = gameInteract.FCi.get(_defaultEvent)).isMe = true;
-    //           gameInteract.emit("kIoddg", _defaultEvent);
-    //           gameInteract.emit(
-    //             "VAEhBF",
-    //             _defaultEvent,
-    //             variableRef.name,
-    //             variableRef.hWu,
-    //             variableRef.hWu,
-    //           );
-    //           gameInteract.FCi.ytA(this.context, variableRef);
-    //           if (this.context !== defaultEvent7.A.yNT) {
-    //             gameInteract.jWf(this.context, defaultEvent7.A.yNT);
-    //           } else {
-    //             gameInteract.jWf(
-    //               defaultEvent7.A.yNT === 0 ? 1 : 0,
-    //               defaultEvent7.A.yNT,
-    //             );
-    //           }
-    //         }
-    //       }, 16);
-    //       if (!gameInteract.running) {
-    //         gameInteract.start(_eventRef);
-    //       }
-    //       this.xXM = (0, defaultEventS.yb)(() => {
-    //         var isCursorPause;
-    //         if (this.connected) {
-    //           if ((isCursorPause = this.mouse).centralize) {
-    //             this.rHk(9);
-    //           } else if (!isCursorPause.pause) {
-    //             this.CiT();
-    //           }
-    //         }
-    //       }, 25);
-    //       this.VFc = performance.now();
-    //       (0, defaultEventS.wg)(
-    //         () => {
-    //           if (!gameInteract.ycZ(this.context)) {
-    //             if (this.uTX != null) {
-    //               defaultEvent7.A.yNT = this.context;
-    //               defaultEvent8.A.set("activeTabContext", this.context);
-    //               delete this.uTX;
-    //             } else if (this.Jtp != null) {
-    //               if (this.SiW != null) {
-    //                 this.rSL.open(this.SiW);
-    //               }
-    //               delete this.Jtp;
-    //             }
-    //             let contextInfo = false;
-    //             if (this.Fcz != null) {
-    //               this.NTE();
-    //               delete this.Fcz;
-    //               contextInfo = true;
-    //             } else if (this.zGd != null) {
-    //               gameInteract.kmM.Xiy(null, null, this.context);
-    //               delete this.zGd;
-    //               contextInfo = true;
-    //             } else if (this.OIw != null) {
-    //               gameInteract.kmM.Xiy(null, null, this.context);
-    //               gameInteract.Cwd = 0.04;
-    //               delete this.OIw;
-    //             }
-    //             if (contextInfo) {
-    //               gameInteract.FQe(false);
-    //             }
-    //           }
-    //         },
-    //         30 + ~~(fallbackEvent.yT() * 30),
-    //       );
-    //       this.connected = true;
-    //       this.Xlu?.(true);
-    //     }
-    //     gtu(standardEvent) {
-    //       standardEvent = new defaultEventS.SE(standardEvent.buffer, 1);
-    //       this.yJs(new c.A(standardEvent).mQJ());
-    //     }
-    //     IWf() {
-    //       var selfInvoker = this.game;
-    //       var timeDifferenc = fallbackEvent.LI(performance.now() - this.Iwi);
-    //       this.ping.update(timeDifferenc);
-    //       if (this.bjN) {
-    //         selfInvoker.emit("EMciAd", timeDifferenc);
-    //       }
-    //     }
-    //     sYi(removeManaged) {
-    //       var cleansedItem;
-    //       var gameRef = this.game;
-    //       if (this.bjN) {
-    //         while ((cleansedItem = removeManaged.wVa()) !== 0) {
-    //           gameRef.FCi.remove(cleansedItem, true);
-    //         }
-    //       }
-    //     }
-    //     ttk(gameConfig) {
-    //       var _configOptions;
-    //       var _gameConfig;
-    //       var __gameInstance = this.game;
-    //       if (
-    //         this.bjN &&
-    //         ((_configOptions = gameConfig.dsR()) & 1 &&
-    //           __gameInstance.FCi.get((_gameConfig = gameConfig.wVa()))?.AcX(
-    //             true,
-    //           ),
-    //         _configOptions & 2)
-    //       ) {
-    //         __gameInstance.FCi.get((_gameConfig = gameConfig.wVa()))?.AcX(
-    //           false,
-    //         );
-    //       }
-    //     }
-    //     hWn(hasEventsToE2) {
-    //       var gameContext = this.game;
-    //       gameContext.hYE[this.context] = performance.now();
-    //       gameContext.GAB = performance.now();
-    //       var [hasEventsToE2, _defaultEventR] = (0, defaultEventR.f)(
-    //         hasEventsToE2,
-    //         this.context,
-    //       );
-    //       var hasEventsToE2 =
-    //         (gameContext.TRu[this.context] = hasEventsToE2) != 0;
-    //       gameContext.DMs(this.context, hasEventsToE2);
-    //       if (hasEventsToE2) {
-    //         gameContext.fwE(this.context, false);
-    //         gameContext.scores[this.context] = _defaultEventR;
-    //         gameContext.xmF[this.context] = fallbackEvent.T9(
-    //           _defaultEventR,
-    //           gameContext.xmF[this.context],
-    //         );
-    //         if (defaultEvent7.A.zCS[this.context]) {
-    //           gameContext.triggerAutoRespawn(this.context);
-    //           delete this.VjJ;
-    //         }
-    //       } else if (
-    //         defaultEvent7.A.zCS[this.context] &&
-    //         ++gameContext.gFX[this.context] == this.VjJ
-    //       ) {
-    //         gameContext.triggerAutoRespawn(this.context);
-    //         delete this.VjJ;
-    //       }
-    //       if (this.bjN) {
-    //         gameContext.KRz++;
-    //         gameContext.pWR(true);
-    //         gameContext.FCi.rvD();
-    //       }
-    //     }
-    //     GZq(uniqueIdWelCm) {
-    //       var __currentGame = this.game;
-    //       var uniqueIdWelCm = {
-    //         pid: uniqueIdWelCm.wVa(),
-    //         text: uniqueIdWelCm.mIn(),
-    //       };
-    //       if (uniqueIdWelCm.pid === 0) {
-    //         if (this.context === defaultEvent7.A.yNT) {
-    //           if (/Welcome to Vanis\.io,.+\!/.test(uniqueIdWelCm.text)) {
-    //             let _selectedServe = l.Dk;
-    //             var commaIndex;
-    //             var n = defaultEvent7.A.selectedServer;
-    //             if (n) {
-    //               _selectedServe = n.region + " " + n.name;
-    //             } else if (
-    //               (n = uniqueIdWelCm.text.indexOf(",")) >= 0 &&
-    //               (commaIndex = uniqueIdWelCm.text.indexOf("!", (n += 2))) >= 0
-    //             ) {
-    //               _selectedServe = uniqueIdWelCm.text.substring(n, commaIndex);
-    //             }
-    //             uniqueIdWelCm.text = (0, l.f9)(_selectedServe);
-    //           } else if (/Server restart.+/.test(uniqueIdWelCm.text)) {
-    //             (0, defaultEvent.me)(uniqueIdWelCm.text, 1000);
-    //             return;
-    //           }
-    //           this.game.emit("QsoZPW", uniqueIdWelCm.text);
-    //         }
-    //       } else if (
-    //         !(__currentGame.oiz > 1) ||
-    //         this.tagId !== this.rSL.tagId ||
-    //         this.context === defaultEvent7.A.yNT
-    //       ) {
-    //         if (__currentGame.FCi.has(uniqueIdWelCm.pid)) {
-    //           n = __currentGame.FCi.get(uniqueIdWelCm.pid);
-    //           uniqueIdWelCm.DvN = PIXI.utils.hex2string(n.ppI);
-    //           if (__currentGame.oiz > 1 && this.tagId !== this.rSL.tagId) {
-    //             uniqueIdWelCm.ePG = this.context;
-    //           }
-    //           uniqueIdWelCm.from = n.name;
-    //           if (n.TIJ) {
-    //             uniqueIdWelCm.Yqh = n.TIJ;
-    //           }
-    //           if (n.jqz) {
-    //             uniqueIdWelCm.badges = n.jqz;
-    //           }
-    //           this.game.emit("NExDkf", uniqueIdWelCm);
-    //         }
-    //       }
-    //     }
-    //     utE(getNextEvent) {
-    //       var eventWithEnh = setDefaultEvt.A.nVI(getNextEvent.data);
-    //       eventWithEnh.id = ++this.SLg;
-    //       var ___currentGame = this.game;
-    //       switch (eventWithEnh.dsR()) {
-    //         case 1:
-    //           return this.SGD(eventWithEnh);
-    //         case 2:
-    //           return this.gtu(eventWithEnh);
-    //         case 3:
-    //           return this.IWf();
-    //         case 4:
-    //           return this.sYi(eventWithEnh);
-    //         case 6:
-    //           return this.rHk(6);
-    //         case 7:
-    //           return this.ttk(eventWithEnh);
-    //         case 10:
-    //           return this.hWn(eventWithEnh);
-    //         case 11:
-    //           if (this.bjN) {
-    //             return (0, n.Zj)(eventWithEnh);
-    //           } else {
-    //             return undefined;
-    //           }
-    //         case 12:
-    //           if (
-    //             !this.bjN &&
-    //             ___currentGame.oiz > 1 &&
-    //             this.rSL.tagId == this.tagId
-    //           ) {
-    //             return undefined;
-    //           } else {
-    //             return (0, n.RP)(eventWithEnh, this.context);
-    //           }
-    //         case 13:
-    //           return this.GZq(eventWithEnh);
-    //         case 16:
-    //           return (0, n.ci)(eventWithEnh);
-    //         case 17:
-    //           if (this.bjN) {
-    //             ___currentGame.camera.IFG[this.context].set(
-    //               eventWithEnh.Nhb(1, true),
-    //             );
-    //             return;
-    //           } else {
-    //             return undefined;
-    //           }
-    //         case 18:
-    //           return ___currentGame.bLD(this.context);
-    //         case 19:
-    //           var ____processEvent = eventWithEnh.dsR() !== 0;
-    //           ___currentGame.emit("AFHIfE", eventWithEnh.uDd());
-    //           if (____processEvent) {
-    //             ____processEvent = eventWithEnh.wVa();
-    //             (0, defaultEvent.me)((0, l.e_)(____processEvent), 3, 3000);
-    //             return;
-    //           } else {
-    //             return undefined;
-    //           }
-    //         case 20:
-    //           if (defaultEvent8.A.get("autoRespawn") && !this.game.Xrx) {
-    //             defaultEvent7.A.zCS[this.context] = true;
-    //             if (performance.now() - this.VFc <= 30000) {
-    //               this.VjJ = 37;
-    //             } else {
-    //               this.VFc = performance.now();
-    //               this.VjJ = 86;
-    //             }
-    //             ___currentGame.gFX[this.context] = 0;
-    //           } else {
-    //             ___currentGame.xCd[this.context] = (0, defaultEventS.wg)(
-    //               ___currentGame.AUn.bind(___currentGame, this.context),
-    //               900,
-    //             );
-    //           }
-    //           return;
-    //         case 22:
-    //           if ("grecaptcha" in window) {
-    //             m.request(this);
-    //             return;
-    //           } else {
-    //             alert(l.EP);
-    //             return;
-    //           }
-    //         case 23:
-    //           defaultEvent7.A.VqP[this.context] = eventWithEnh.wVa();
-    //           return;
-    //         case 24:
-    //           if (this.bjN) {
-    //             ___currentGame.KRz = eventWithEnh.uDd();
-    //             ___currentGame.emit("NZB", eventWithEnh.uDd());
-    //             return;
-    //           } else {
-    //             return undefined;
-    //           }
-    //         case 26:
-    //           r.qC.set(!eventWithEnh.dsR());
-    //           if (eventWithEnh.length > eventWithEnh.offset + 1) {
-    //             r.pB.set(eventWithEnh.zWb() || (0, l.Rr)(1 + this.context));
-    //           }
-    //           return;
-    //         case 28:
-    //           if (this.bjN) {
-    //             return (0, n.Py)(eventWithEnh);
-    //           } else {
-    //             return undefined;
-    //           }
-    //       }
-    //     }
-    //     yJs(_fetchTokens) {
-    //       var useVanity =
-    //         "ignoreToken" in defaultEventO.g ||
-    //         !/^wss?:\/\/[a-zA-Z0-9_-]+\.vanis\.io/i.test(this.SiW)
-    //           ? null
-    //           : localStorage.vanisToken;
-    //       let setDefaultAt2 = setDefaultEvt.A.ZiI(
-    //         2 +
-    //           _fetchTokens.length +
-    //           (typeof useVanity == "string" ? useVanity.length : 0),
-    //       );
-    //       setDefaultAt2.hKc(5);
-    //       setDefaultAt2.hKc(this.game.zfx);
-    //       _fetchTokens.forEach((initializeOrG) =>
-    //         setDefaultAt2.hKc(initializeOrG),
-    //       );
-    //       (0, defaultEvent.hJ)(setDefaultAt2, this.context);
-    //       if (typeof useVanity == "string") {
-    //         setDefaultAt2.qBs(useVanity);
-    //       }
-    //       this.send(setDefaultAt2);
-    //     }
-    //     CiT() {
-    //       var ___EventHandler;
-    //       var defaultEventX;
-    //       var triggerEventX;
-    //       if (this.connected) {
-    //         ({ x: defaultEventX, y: triggerEventX } =
-    //           ((___EventHandler = setDefaultEvt.A.ZiI(5)).hKc(16), this.mouse));
-    //         ___EventHandler.Ylk(defaultEventX);
-    //         ___EventHandler.Ylk(triggerEventX);
-    //         this.send(___EventHandler);
-    //       }
-    //     }
-    //     rHk(___eventContext) {
-    //       var __defaultEvent = setDefaultEvt.A.ZiI(1);
-    //       __defaultEvent.hKc(___eventContext);
-    //       this.send(__defaultEvent);
-    //     }
-    //     BtR() {
-    //       var setDefaultEvT = setDefaultEvt.A.ZiI(1);
-    //       setDefaultEvT.hKc(3);
-    //       var sendStartTime = performance.now();
-    //       this.send(setDefaultEvT);
-    //       var setDefaultEvT = performance.now() - sendStartTime;
-    //       if (setDefaultEvT != 0) {
-    //         return sendStartTime + setDefaultEvT;
-    //       } else {
-    //         return sendStartTime;
-    //       }
-    //     }
-    //     mKa(eventCreator) {
-    //       var ___defaultEvent;
-    //       if (typeof eventCreator == "string") {
-    //         (___defaultEvent = setDefaultEvt.A.ZiI(
-    //           1 + (eventCreator.length + 1),
-    //         )).hKc(11);
-    //         ___defaultEvent.qBs(eventCreator);
-    //         this.send(___defaultEvent);
-    //       }
-    //     }
-    //     uot(urlEncodedUrl) {
-    //       urlEncodedUrl = (0, defaultEventS.x4)(
-    //         encodeURIComponent(urlEncodedUrl),
-    //       );
-    //       var urlEncodedEvt = setDefaultEvt.A.ZiI(1 + urlEncodedUrl.length);
-    //       urlEncodedEvt.hKc(99);
-    //       urlEncodedEvt.zlO(urlEncodedUrl);
-    //       this.send(urlEncodedEvt);
-    //     }
-    //     adz(_conditionalHo) {
-    //       var ____defaultEvent = setDefaultEvt.A.ZiI(
-    //         _conditionalHo != null ? 3 : 1,
-    //       );
-    //       ____defaultEvent.hKc(2);
-    //       if (typeof _conditionalHo == "number") {
-    //         ____defaultEvent.Ylk(_conditionalHo);
-    //       }
-    //       this.send(____defaultEvent);
-    //     }
-    //     NTE() {
-    //       this.VFc = performance.now();
-    //       var defaultAsyncW = setDefaultEvt.A.ZiI(1);
-    //       defaultAsyncW.hKc(1);
-    //       (0, defaultEvent.hJ)(defaultAsyncW, this.context);
-    //       this.send(defaultAsyncW);
-    //     }
-    //     DQA() {
-    //       this.rHk(10);
-    //     }
-    //     jjW(_eventType) {
-    //       var hasEventArgs = arguments.length !== 0;
-    //       var ____________eventData = setDefaultEvt.A.ZiI(hasEventArgs ? 2 : 1);
-    //       ____________eventData.hKc(21);
-    //       if (hasEventArgs) {
-    //         ____________eventData.hKc(+_eventType);
-    //       }
-    //       this.send(____________eventData);
-    //     }
-    //     JOy(onHKcEvent) {
-    //       var modifiedEvent = setDefaultEvt.A.ZiI(2);
-    //       modifiedEvent.hKc(17);
-    //       modifiedEvent.hKc(onHKcEvent);
-    //       this.send(modifiedEvent);
-    //     }
-    //     get bjN() {
-    //       return (
-    //         this.context === defaultEvent7.A.yNT ||
-    //         !this.game.pEA(defaultEvent7.A.yNT)
-    //       );
-    //     }
-    //     get rSL() {
-    //       return this.game.eWI[this.context == 0 ? 1 : 0];
-    //     }
-    //   }
-    // },
-//connecting??
-    37921($, e, t) {
-      t.d(e, {
-          A: () => C
+    37921(setDefaultAnc, eventDefaults, defaultEventO) {
+      defaultEventO.d(eventDefaults, {
+        A: () => onJPH,
       });
-      var x = t(83529),
-          s = t(78225),
-          i = t(15308),
-          n = t(11029),
-          a = t(19437),
-          o = (t(63836), t(24968)),
-          r = t(8125),
-          l = t(33656),
-          c = t(95654),
-          h = t(4371),
-          e = t(22398),
-          A = t(61036),
-          u = t(30847),
-          d = t(6883),
-          g = t(37635);
-      let m = new e.A;
-      class C {
-          set connected($) {
-              this.uuS = $, this.game.emit("jPH", this.context, $)
-          }
-          get connected() {
-              return this.uuS
-          }
-          fyP($) {
-              return ($ = $ || null) !== this.tagId && (this.tagId = $, !0)
-          }
-          constructor($, e) {
-              this.opened = !1, this.uuS = !1, this.pNb = 0, this.mtv = null, this.SiW = null, this.OqS = null, this.Iwi = 0, this.ping = new o.A, this.mouse = g.A.from(0, 0), this.SLg = 0, this.game = $, this.context = e
-          }
-          async init($) {
-              return Promise.resolve().then(() => !0)
-          }
-          open($, e) {
-              return new Promise(async t => {
-                  if (this.game.running && !this.rSL.opened && (this.game.stop(), s.A.yNT = this.context), this.opened && ((0, i.$s)(1, (0, l.Es)(1 + this.context)), this.close()), !await this.init(this.OqS = e || $.replace("ws", "http"))) return t(!1);
-                  this.mtv = $, this.opened = !0, this.Xlu = t;
-                  let x = this.ws = new h.A($, "tFoL46WDlZuRja7W6qCl");
-                  x.binaryType = "arraybuffer", x.onopen = () => {
-                      if (!this.opened) return t(!1);
-                      (0, i.me)((0, l.vL)(1 + this.context), 3), this.stk = this.pNb++, this.SiW = $, x.onclose = this.pTl.bind(this)
-                  }, x.onclose = this.Ksg.bind(this), x.onmessage = this.utE.bind(this)
-              })
-          }
-          close() {
-              var $ = this.ws;
-              $ && ($.onmessage = null, $.onclose = null, $.onerror = null, $.close(), delete this.ws, delete this.mtv, delete this.SiW, delete this.OqS, this.Iwi = 0, this.ping.reset(), this.opened = this.connected = !1, delete this.OIw, delete this.zGd, delete this.Fcz, delete this.uTX, delete this.VFc, this.cSq && (clearInterval(this.cSq), delete this.cSq), this.xXM && (clearInterval(this.xXM), delete this.xXM), delete this.tagId, this.SuG && ((0, u.DJ)(this.SuG), delete this.SuG), this.mouse.reset(), this.game.oiz = this.rSL.connected ? 1 : 0, this.SLg = 0)
-          }
-          send($) {
-              var e;
-              return $ instanceof d.A && ($ = $.kpj()), !!this.opened && (e = this.ws, (0, i.X0)(e instanceof h.A, "Socket not defined?"), e.send($), !0)
-          }
-          pTl($) {
-              delete this.stk, this.opened = this.connected = !1;
-              var e = this.ping.current,
-                  t = (this.close(), this.Xlu?.(!1), this.game);
-              t.running && (1003 !== $.code && t.pEA(0 == this.context ? 1 : 0) ? t.bLD(this.context, !0) : t.stop());
-              let x;
-              if (1003 === $.code) x = 1500 - e, this.context === s.A.yNT && (0, i.me)(l.DY, 0, x);
-              else {
-                  x = 3e3 + ~~(100 * A.yT());
-                  let n = (0, l.zw)(1 + this.context);
-                  "string" == typeof $.reason && (n += " (" + $.reason + ")"), (0, i.me)(n, 2, x)
+      var defaultEvent8 = defaultEventO(83529);
+      var defaultEvent7 = defaultEventO(78225);
+      var defaultEvent = defaultEventO(15308);
+      var n = defaultEventO(11029);
+      var defaultEventR = defaultEventO(19437);
+      defaultEventO(63836);
+      var o = defaultEventO(24968);
+      var r = defaultEventO(8125);
+      var l = defaultEventO(33656);
+      var c = defaultEventO(95654);
+      var _eventDefaults = defaultEventO(4371);
+      var eventDefaults = defaultEventO(22398);
+      var fallbackEvent = defaultEventO(61036);
+      var defaultEventS = defaultEventO(30847);
+      var setDefaultEvt = defaultEventO(6883);
+      var configureAndC = defaultEventO(37635);
+      let m = new eventDefaults.A();
+      class onJPH {
+        set connected(setConnection) {
+          this.uuS = setConnection;
+          this.game.emit("jPH", this.context, setConnection);
+        }
+        get connected() {
+          return this.uuS;
+        }
+        fyP(compareTagId) {
+          return (
+            (compareTagId = compareTagId || null) !== this.tagId &&
+            ((this.tagId = compareTagId), true)
+          );
+        }
+        constructor(______fetchData, _______eventDetails) {
+          this.opened = false;
+          this.uuS = false;
+          this.pNb = 0;
+          this.mtv = null;
+          this.SiW = null;
+          this.OqS = null;
+          this.Iwi = 0;
+          this.ping = new o.A();
+          this.mouse = configureAndC.A.from(0, 0);
+          this.SLg = 0;
+          this.game = ______fetchData;
+          this.context = _______eventDetails;
+        }
+        async init(_jqObject) {
+          return Promise.resolve().then(() => true);
+        }
+        open(checkEventAnd, preventGamePv) {
+          return new Promise(async (checkGameStop) => {
+            if (this.game.running && !this.rSL.opened) {
+              this.game.stop();
+              defaultEvent7.A.yNT = this.context;
+            }
+            if (this.opened) {
+              (0, defaultEvent.$s)(1, (0, l.Es)(1 + this.context));
+              this.close();
+            }
+            if (
+              !(await this.init(
+                (this.OqS =
+                  preventGamePv || checkEventAnd.replace("ws", "http")),
+              ))
+            ) {
+              return checkGameStop(false);
+            }
+            this.mtv = checkEventAnd;
+            this.opened = true;
+            this.Xlu = checkGameStop;
+            let isGameFinish = (this.ws = new _eventDefaults.A(
+              checkEventAnd,
+              "tFoL46WDlZuRja7W6qCl",
+            ));
+            isGameFinish.binaryType = "arraybuffer";
+            isGameFinish.onopen = () => {
+              if (!this.opened) {
+                return checkGameStop(false);
               }
-              t.pEA(0 === this.context ? 1 : 0) || t.Xrx || t.FQe(!0), this.SuG = (0, u.wg)(() => {
-                  this.opened || this.SiW && this.SiW !== s.A.vSE || ((0, i.me)((0, l.Nr)(1 + this.context)), s.A.vSE && this.open(s.A.vSE, this.OqS))
-              }, x)
+              (0, defaultEvent.me)((0, l.vL)(1 + this.context), 3);
+              this.stk = this.pNb++;
+              this.SiW = checkEventAnd;
+              isGameFinish.onclose = this.pTl.bind(this);
+            };
+            isGameFinish.onclose = this.Ksg.bind(this);
+            isGameFinish.onmessage = this.utE.bind(this);
+          });
+        }
+        close() {
+          var disconnectWeb = this.ws;
+          if (disconnectWeb) {
+            disconnectWeb.onmessage = null;
+            disconnectWeb.onclose = null;
+            disconnectWeb.onerror = null;
+            disconnectWeb.close();
+            delete this.ws;
+            delete this.mtv;
+            delete this.SiW;
+            delete this.OqS;
+            this.Iwi = 0;
+            this.ping.reset();
+            this.opened = this.connected = false;
+            delete this.OIw;
+            delete this.zGd;
+            delete this.Fcz;
+            delete this.uTX;
+            delete this.VFc;
+            if (this.cSq) {
+              clearInterval(this.cSq);
+              delete this.cSq;
+            }
+            if (this.xXM) {
+              clearInterval(this.xXM);
+              delete this.xXM;
+            }
+            delete this.tagId;
+            if (this.SuG) {
+              (0, defaultEventS.DJ)(this.SuG);
+              delete this.SuG;
+            }
+            this.mouse.reset();
+            if (this.rSL.connected) {
+              this.game.oiz = 1;
+            } else {
+              this.game.oiz = 0;
+            }
+            this.SLg = 0;
           }
-          Ksg() {
-              delete this.stk, (this.opened = this.connected = !1, i.me)((0, l.Yf)(1 + this.context), 2), this.Xlu?.(!1)
+        }
+        send(__________event) {
+          var webSocket;
+          if (__________event instanceof setDefaultEvt.A) {
+            __________event = __________event.kpj();
           }
-          SGD($) {
-              let e = this.game;
-              this.game.oiz = this.rSL.connected ? 2 : 1, $ = (0, n.O4)($);
-              let t = s.A.pids[this.context] = $.lrL;
-              this.context === s.A.yNT && this.game.emit("cjyapb", l.zh), this.cSq = (0, u.yb)(() => {
-                  var $;
-                  this.opened || (clearInterval(this.cSq), delete this.cSq), e.FCi.has(t) && (clearInterval(this.cSq), delete this.cSq, ($ = e.FCi.get(t)).isMe = !0, e.emit("kIoddg", t), e.emit("VAEhBF", t, $.name, $.hWu, $.hWu), e.FCi.ytA(this.context, $), this.context !== s.A.yNT ? e.jWf(this.context, s.A.yNT) : e.jWf(0 === s.A.yNT ? 1 : 0, s.A.yNT))
-              }, 16), e.running || e.start($), this.xXM = (0, u.yb)(() => {
-                  var $;
-                  this.connected && (($ = this.mouse).centralize ? this.rHk(9) : $.pause || this.CiT())
-              }, 25), this.VFc = performance.now(), (0, u.wg)(() => {
-                  if (!e.ycZ(this.context)) {
-                      null != this.uTX ? (s.A.yNT = this.context, x.A.set("activeTabContext", this.context), delete this.uTX) : null != this.Jtp && (null != this.SiW && this.rSL.open(this.SiW), delete this.Jtp);
-                      let $ = !1;
-                      null != this.Fcz ? (this.NTE(), delete this.Fcz, $ = !0) : null != this.zGd ? (e.kmM.Xiy(null, null, this.context), delete this.zGd, $ = !0) : null != this.OIw && (e.kmM.Xiy(null, null, this.context), e.Cwd = .04, delete this.OIw), $ && e.FQe(!1)
+          return (
+            !!this.opened &&
+            ((webSocket = this.ws),
+            (0, defaultEvent.X0)(
+              webSocket instanceof _eventDefaults.A,
+              "Socket not defined?",
+            ),
+            webSocket.send(__________event),
+            true)
+          );
+        }
+        pTl(GameContext) {
+          delete this.stk;
+          this.opened = this.connected = false;
+          var currentPing = this.ping.current;
+          this.close();
+          this.Xlu?.(false);
+          var _currentGame = this.game;
+          if (_currentGame.running) {
+            if (
+              GameContext.code !== 1003 &&
+              _currentGame.pEA(this.context == 0 ? 1 : 0)
+            ) {
+              _currentGame.bLD(this.context, true);
+            } else {
+              _currentGame.stop();
+            }
+          }
+          let resetGameClos;
+          if (GameContext.code === 1003) {
+            resetGameClos = 1500 - currentPing;
+            if (this.context === defaultEvent7.A.yNT) {
+              (0, defaultEvent.me)(l.DY, 0, resetGameClos);
+            }
+          } else {
+            resetGameClos = 3000 + ~~(fallbackEvent.yT() * 100);
+            let n = (0, l.zw)(1 + this.context);
+            if (typeof GameContext.reason == "string") {
+              n += " (" + GameContext.reason + ")";
+            }
+            (0, defaultEvent.me)(n, 2, resetGameClos);
+          }
+          if (
+            !_currentGame.pEA(this.context === 0 ? 1 : 0) &&
+            !_currentGame.Xrx
+          ) {
+            _currentGame.FQe(true);
+          }
+          this.SuG = (0, defaultEventS.wg)(() => {
+            if (
+              !this.opened &&
+              (!this.SiW || this.SiW === defaultEvent7.A.vSE)
+            ) {
+              (0, defaultEvent.me)((0, l.Nr)(1 + this.context));
+              if (defaultEvent7.A.vSE) {
+                this.open(defaultEvent7.A.vSE, this.OqS);
+              }
+            }
+          }, resetGameClos);
+        }
+        Ksg() {
+          delete this.stk;
+          ((this.opened = this.connected = false), defaultEvent.me)(
+            (0, l.Yf)(1 + this.context),
+            2,
+          );
+          this.Xlu?.(false);
+        }
+        SGD(_eventRef) {
+          let gameInteract = this.game;
+          if (this.rSL.connected) {
+            this.game.oiz = 2;
+          } else {
+            this.game.oiz = 1;
+          }
+          _eventRef = (0, n.O4)(_eventRef);
+          let _defaultEvent = (defaultEvent7.A.pids[this.context] =
+            _eventRef.lrL);
+          if (this.context === defaultEvent7.A.yNT) {
+            this.game.emit("cjyapb", l.zh);
+          }
+          this.cSq = (0, defaultEventS.yb)(() => {
+            var variableRef;
+            if (!this.opened) {
+              clearInterval(this.cSq);
+              delete this.cSq;
+            }
+            if (gameInteract.FCi.has(_defaultEvent)) {
+              clearInterval(this.cSq);
+              delete this.cSq;
+              (variableRef = gameInteract.FCi.get(_defaultEvent)).isMe = true;
+              gameInteract.emit("kIoddg", _defaultEvent);
+              gameInteract.emit(
+                "VAEhBF",
+                _defaultEvent,
+                variableRef.name,
+                variableRef.hWu,
+                variableRef.hWu,
+              );
+              gameInteract.FCi.ytA(this.context, variableRef);
+              if (this.context !== defaultEvent7.A.yNT) {
+                gameInteract.jWf(this.context, defaultEvent7.A.yNT);
+              } else {
+                gameInteract.jWf(
+                  defaultEvent7.A.yNT === 0 ? 1 : 0,
+                  defaultEvent7.A.yNT,
+                );
+              }
+            }
+          }, 16);
+          if (!gameInteract.running) {
+            gameInteract.start(_eventRef);
+          }
+          this.xXM = (0, defaultEventS.yb)(() => {
+            var isCursorPause;
+            if (this.connected) {
+              if ((isCursorPause = this.mouse).centralize) {
+                this.rHk(9);
+              } else if (!isCursorPause.pause) {
+                this.CiT();
+              }
+            }
+          }, 25);
+          this.VFc = performance.now();
+          (0, defaultEventS.wg)(
+            () => {
+              if (!gameInteract.ycZ(this.context)) {
+                if (this.uTX != null) {
+                  defaultEvent7.A.yNT = this.context;
+                  defaultEvent8.A.set("activeTabContext", this.context);
+                  delete this.uTX;
+                } else if (this.Jtp != null) {
+                  if (this.SiW != null) {
+                    this.rSL.open(this.SiW);
                   }
-              }, 30 + ~~(30 * A.yT())), this.connected = !0, this.Xlu?.(!0)
+                  delete this.Jtp;
+                }
+                let contextInfo = false;
+                if (this.Fcz != null) {
+                  this.NTE();
+                  delete this.Fcz;
+                  contextInfo = true;
+                } else if (this.zGd != null) {
+                  gameInteract.kmM.Xiy(null, null, this.context);
+                  delete this.zGd;
+                  contextInfo = true;
+                } else if (this.OIw != null) {
+                  gameInteract.kmM.Xiy(null, null, this.context);
+                  gameInteract.Cwd = 0.04;
+                  delete this.OIw;
+                }
+                if (contextInfo) {
+                  gameInteract.FQe(false);
+                }
+              }
+            },
+            30 + ~~(fallbackEvent.yT() * 30),
+          );
+          this.connected = true;
+          this.Xlu?.(true);
+        }
+        gtu(standardEvent) {
+          standardEvent = new defaultEventS.SE(standardEvent.buffer, 1);
+          this.yJs(new c.A(standardEvent).mQJ());
+        }
+        IWf() {
+          var selfInvoker = this.game;
+          var timeDifferenc = fallbackEvent.LI(performance.now() - this.Iwi);
+          this.ping.update(timeDifferenc);
+          if (this.bjN) {
+            selfInvoker.emit("EMciAd", timeDifferenc);
           }
-          gtu($) {
-              $ = new u.SE($.buffer, 1), this.yJs(new c.A($).mQJ())
+        }
+        sYi(removeManaged) {
+          var cleansedItem;
+          var gameRef = this.game;
+          if (this.bjN) {
+            while ((cleansedItem = removeManaged.wVa()) !== 0) {
+              gameRef.FCi.remove(cleansedItem, true);
+            }
           }
-          IWf() {
-              var $ = this.game,
-                  e = A.LI(performance.now() - this.Iwi);
-              this.ping.update(e), this.bjN && $.emit("EMciAd", e)
+        }
+        ttk(gameConfig) {
+          var _configOptions;
+          var _gameConfig;
+          var __gameInstance = this.game;
+          if (
+            this.bjN &&
+            ((_configOptions = gameConfig.dsR()) & 1 &&
+              __gameInstance.FCi.get((_gameConfig = gameConfig.wVa()))?.AcX(
+                true,
+              ),
+            _configOptions & 2)
+          ) {
+            __gameInstance.FCi.get((_gameConfig = gameConfig.wVa()))?.AcX(
+              false,
+            );
           }
-          sYi($) {
-              var e, t = this.game;
-              if (this.bjN)
-                  for (; 0 !== (e = $.wVa());) t.FCi.remove(e, !0)
+        }
+        hWn(hasEventsToE2) {
+          var gameContext = this.game;
+          gameContext.hYE[this.context] = performance.now();
+          gameContext.GAB = performance.now();
+          var [hasEventsToE2, _defaultEventR] = (0, defaultEventR.f)(
+            hasEventsToE2,
+            this.context,
+          );
+          var hasEventsToE2 =
+            (gameContext.TRu[this.context] = hasEventsToE2) != 0;
+          gameContext.DMs(this.context, hasEventsToE2);
+          if (hasEventsToE2) {
+            gameContext.fwE(this.context, false);
+            gameContext.scores[this.context] = _defaultEventR;
+            gameContext.xmF[this.context] = fallbackEvent.T9(
+              _defaultEventR,
+              gameContext.xmF[this.context],
+            );
+            if (defaultEvent7.A.zCS[this.context]) {
+              gameContext.triggerAutoRespawn(this.context);
+              delete this.VjJ;
+            }
+          } else if (
+            defaultEvent7.A.zCS[this.context] &&
+            ++gameContext.gFX[this.context] == this.VjJ
+          ) {
+            gameContext.triggerAutoRespawn(this.context);
+            delete this.VjJ;
           }
-          ttk($) {
-              var e, t, x = this.game;
-              this.bjN && (1 & (e = $.dsR()) && x.FCi.get(t = $.wVa())?.AcX(!0), 2 & e) && x.FCi.get(t = $.wVa())?.AcX(!1)
+          if (this.bjN) {
+            gameContext.KRz++;
+            gameContext.pWR(true);
+            gameContext.FCi.rvD();
           }
-          hWn($) {
-              var e = this.game,
-                  [$, t] = (e.hYE[this.context] = performance.now(), e.GAB = performance.now(), (0, a.f)($, this.context)),
-                  $ = 0 != (e.TRu[this.context] = $);
-              e.DMs(this.context, $), $ ? (e.fwE(this.context, !1), e.scores[this.context] = t, e.xmF[this.context] = A.T9(t, e.xmF[this.context]), s.A.zCS[this.context] && (e.triggerAutoRespawn(this.context), delete this.VjJ)) : s.A.zCS[this.context] && ++e.gFX[this.context] == this.VjJ && (e.triggerAutoRespawn(this.context), delete this.VjJ), this.bjN && (e.KRz++, e.pWR(!0), e.FCi.rvD())
+        }
+        GZq(uniqueIdWelCm) {
+          var __currentGame = this.game;
+          var uniqueIdWelCm = {
+            pid: uniqueIdWelCm.wVa(),
+            text: uniqueIdWelCm.mIn(),
+          };
+          if (uniqueIdWelCm.pid === 0) {
+            if (this.context === defaultEvent7.A.yNT) {
+              if (/Welcome to Vanis\.io,.+\!/.test(uniqueIdWelCm.text)) {
+                let _selectedServe = l.Dk;
+                var commaIndex;
+                var n = defaultEvent7.A.selectedServer;
+                if (n) {
+                  _selectedServe = n.region + " " + n.name;
+                } else if (
+                  (n = uniqueIdWelCm.text.indexOf(",")) >= 0 &&
+                  (commaIndex = uniqueIdWelCm.text.indexOf("!", (n += 2))) >= 0
+                ) {
+                  _selectedServe = uniqueIdWelCm.text.substring(n, commaIndex);
+                }
+                uniqueIdWelCm.text = (0, l.f9)(_selectedServe);
+              } else if (/Server restart.+/.test(uniqueIdWelCm.text)) {
+                (0, defaultEvent.me)(uniqueIdWelCm.text, 1000);
+                return;
+              }
+              this.game.emit("QsoZPW", uniqueIdWelCm.text);
+            }
+          } else if (
+            !(__currentGame.oiz > 1) ||
+            this.tagId !== this.rSL.tagId ||
+            this.context === defaultEvent7.A.yNT
+          ) {
+            if (__currentGame.FCi.has(uniqueIdWelCm.pid)) {
+              n = __currentGame.FCi.get(uniqueIdWelCm.pid);
+              uniqueIdWelCm.DvN = PIXI.utils.hex2string(n.ppI);
+              if (__currentGame.oiz > 1 && this.tagId !== this.rSL.tagId) {
+                uniqueIdWelCm.ePG = this.context;
+              }
+              uniqueIdWelCm.from = n.name;
+              if (n.TIJ) {
+                uniqueIdWelCm.Yqh = n.TIJ;
+              }
+              if (n.jqz) {
+                uniqueIdWelCm.badges = n.jqz;
+              }
+              this.game.emit("NExDkf", uniqueIdWelCm);
+            }
           }
-          GZq($) {
-              var e = this.game,
-                  $ = {
-                      pid: $.wVa(),
-                      text: $.mIn()
-                  };
-              if (0 === $.pid) {
-                  if (this.context === s.A.yNT) {
-                      if (/Welcome to Vanis\.io,.+\!/.test($.text)) {
-                          let t = l.Dk;
-                          var x, n = s.A.selectedServer;
-                          n ? t = n.region + " " + n.name : 0 <= (n = $.text.indexOf(",")) && 0 <= (x = $.text.indexOf("!", n += 2)) && (t = $.text.substring(n, x)), $.text = (0, l.f9)(t)
-                      } else if (/Server restart.+/.test($.text)) return void(0, i.me)($.text, 1e3);
-                      this.game.emit("QsoZPW", $.text)
-                  }
-              } else 1 < e.oiz && this.tagId === this.rSL.tagId && this.context !== s.A.yNT || e.FCi.has($.pid) && (n = e.FCi.get($.pid), $.DvN = PIXI.utils.hex2string(n.ppI), 1 < e.oiz && this.tagId !== this.rSL.tagId && ($.ePG = this.context), $.from = n.name, n.TIJ && ($.Yqh = n.TIJ), n.jqz && ($.badges = n.jqz), this.game.emit("NExDkf", $))
-          }
-          utE($) {
-              var e = d.A.nVI($.data),
-                  t = (e.id = ++this.SLg, this.game);
-              switch (e.dsR()) {
-                  case 1:
-                      return this.SGD(e);
-                  case 2:
-                      return this.gtu(e);
-                  case 3:
-                      return this.IWf();
-                  case 4:
-                      return this.sYi(e);
-                  case 6:
-                      return this.rHk(6);
-                  case 7:
-                      return this.ttk(e);
-                  case 10:
-                      return this.hWn(e);
-                  case 11:
-                      return this.bjN ? (0, n.Zj)(e) : void 0;
-                  case 12:
-                      return !this.bjN && 1 < t.oiz && this.rSL.tagId == this.tagId ? void 0 : (0, n.RP)(e, this.context);
-                  case 13:
-                      return this.GZq(e);
-                  case 16:
-                      return (0, n.ci)(e);
-                  case 17:
-                      return this.bjN ? void t.camera.IFG[this.context].set(e.Nhb(1, !0)) : void 0;
-                  case 18:
-                      return t.bLD(this.context);
-                  case 19:
-                      var a = 0 !== e.dsR();
-                      return (t.emit("AFHIfE", e.uDd()), a) ? (a = e.wVa(), void(0, i.me)((0, l.e_)(a), 3, 3e3)) : void 0;
-                  case 20:
-                      return void(x.A.get("autoRespawn") && !this.game.Xrx ? (s.A.zCS[this.context] = !0, performance.now() - this.VFc <= 3e4 ? this.VjJ = 37 : (this.VFc = performance.now(), this.VjJ = 86), t.gFX[this.context] = 0) : t.xCd[this.context] = (0, u.wg)(t.AUn.bind(t, this.context), 900));
-                  case 22:
-                      return "grecaptcha" in window ? void m.request(this) : void alert(l.EP);
-                  case 23:
-                      return void(s.A.VqP[this.context] = e.wVa());
-                  case 24:
-                      return this.bjN ? (t.KRz = e.uDd(), void t.emit("NZB", e.uDd())) : void 0;
-                  case 26:
-                      return r.qC.set(!e.dsR()), void(e.length > e.offset + 1 && r.pB.set(e.zWb() || (0, l.Rr)(1 + this.context)));
-                  case 28:
-                      return this.bjN ? (0, n.Py)(e) : void 0
+        }
+        utE(getNextEvent) {
+          var eventWithEnh = setDefaultEvt.A.nVI(getNextEvent.data);
+          eventWithEnh.id = ++this.SLg;
+          var ___currentGame = this.game;
+          switch (eventWithEnh.dsR()) {
+            case 1:
+              return this.SGD(eventWithEnh);
+            case 2:
+              return this.gtu(eventWithEnh);
+            case 3:
+              return this.IWf();
+            case 4:
+              return this.sYi(eventWithEnh);
+            case 6:
+              return this.rHk(6);
+            case 7:
+              return this.ttk(eventWithEnh);
+            case 10:
+              return this.hWn(eventWithEnh);
+            case 11:
+              if (this.bjN) {
+                return (0, n.Zj)(eventWithEnh);
+              } else {
+                return undefined;
+              }
+            case 12:
+              if (
+                !this.bjN &&
+                ___currentGame.oiz > 1 &&
+                this.rSL.tagId == this.tagId
+              ) {
+                return undefined;
+              } else {
+                return (0, n.RP)(eventWithEnh, this.context);
+              }
+            case 13:
+              return this.GZq(eventWithEnh);
+            case 16:
+              return (0, n.ci)(eventWithEnh);
+            case 17:
+              if (this.bjN) {
+                ___currentGame.camera.IFG[this.context].set(
+                  eventWithEnh.Nhb(1, true),
+                );
+                return;
+              } else {
+                return undefined;
+              }
+            case 18:
+              return ___currentGame.bLD(this.context);
+            case 19:
+              var ____processEvent = eventWithEnh.dsR() !== 0;
+              ___currentGame.emit("AFHIfE", eventWithEnh.uDd());
+              if (____processEvent) {
+                ____processEvent = eventWithEnh.wVa();
+                (0, defaultEvent.me)((0, l.e_)(____processEvent), 3, 3000);
+                return;
+              } else {
+                return undefined;
+              }
+            case 20:
+              if (defaultEvent8.A.get("autoRespawn") && !this.game.Xrx) {
+                defaultEvent7.A.zCS[this.context] = true;
+                if (performance.now() - this.VFc <= 30000) {
+                  this.VjJ = 37;
+                } else {
+                  this.VFc = performance.now();
+                  this.VjJ = 86;
+                }
+                ___currentGame.gFX[this.context] = 0;
+              } else {
+                ___currentGame.xCd[this.context] = (0, defaultEventS.wg)(
+                  ___currentGame.AUn.bind(___currentGame, this.context),
+                  900,
+                );
+              }
+              return;
+            case 22:
+              if ("grecaptcha" in window) {
+                m.request(this);
+                return;
+              } else {
+                alert(l.EP);
+                return;
+              }
+            case 23:
+              defaultEvent7.A.VqP[this.context] = eventWithEnh.wVa();
+              return;
+            case 24:
+              if (this.bjN) {
+                ___currentGame.KRz = eventWithEnh.uDd();
+                ___currentGame.emit("NZB", eventWithEnh.uDd());
+                return;
+              } else {
+                return undefined;
+              }
+            case 26:
+              r.qC.set(!eventWithEnh.dsR());
+              if (eventWithEnh.length > eventWithEnh.offset + 1) {
+                r.pB.set(eventWithEnh.zWb() || (0, l.Rr)(1 + this.context));
+              }
+              return;
+            case 28:
+              if (this.bjN) {
+                return (0, n.Py)(eventWithEnh);
+              } else {
+                return undefined;
               }
           }
-          yJs($) {
-              var e = "ignoreToken" in t.g || !/^wss?:\/\/[a-zA-Z0-9_-]+\.vanis\.io/i.test(this.SiW) ? null : localStorage.vanisToken;
-              let x = d.A.ZiI(2 + $.length + ("string" == typeof e ? e.length : 0));
-              x.hKc(5), x.hKc(this.game.zfx), $.forEach($ => x.hKc($)), (0, i.hJ)(x, this.context), "string" == typeof e && x.qBs(e), this.send(x)
+        }
+        yJs(_fetchTokens) {
+          var useVanity =
+            "ignoreToken" in defaultEventO.g ||
+            !/^wss?:\/\/[a-zA-Z0-9_-]+\.vanis\.io/i.test(this.SiW)
+              ? null
+              : localStorage.vanisToken;
+          let setDefaultAt2 = setDefaultEvt.A.ZiI(
+            2 +
+              _fetchTokens.length +
+              (typeof useVanity == "string" ? useVanity.length : 0),
+          );
+          setDefaultAt2.hKc(5);
+          setDefaultAt2.hKc(this.game.zfx);
+          _fetchTokens.forEach((initializeOrG) =>
+            setDefaultAt2.hKc(initializeOrG),
+          );
+          (0, defaultEvent.hJ)(setDefaultAt2, this.context);
+          if (typeof useVanity == "string") {
+            setDefaultAt2.qBs(useVanity);
           }
-          CiT() {
-              var $, e, t;
-              this.connected && ({
-                  x: e,
-                  y: t
-              } = (($ = d.A.ZiI(5)).hKc(16), this.mouse), $.Ylk(e), $.Ylk(t), this.send($))
+          this.send(setDefaultAt2);
+        }
+        CiT() {
+          var ___EventHandler;
+          var defaultEventX;
+          var triggerEventX;
+          if (this.connected) {
+            ({ x: defaultEventX, y: triggerEventX } =
+              ((___EventHandler = setDefaultEvt.A.ZiI(5)).hKc(16), this.mouse));
+            ___EventHandler.Ylk(defaultEventX);
+            ___EventHandler.Ylk(triggerEventX);
+            this.send(___EventHandler);
           }
-          rHk($) {
-              var e = d.A.ZiI(1);
-              e.hKc($), this.send(e)
+        }
+        rHk(___eventContext) {
+          var __defaultEvent = setDefaultEvt.A.ZiI(1);
+          __defaultEvent.hKc(___eventContext);
+          this.send(__defaultEvent);
+        }
+        BtR() {
+          var setDefaultEvT = setDefaultEvt.A.ZiI(1);
+          setDefaultEvT.hKc(3);
+          var sendStartTime = performance.now();
+          this.send(setDefaultEvT);
+          var setDefaultEvT = performance.now() - sendStartTime;
+          if (setDefaultEvT != 0) {
+            return sendStartTime + setDefaultEvT;
+          } else {
+            return sendStartTime;
           }
-          BtR() {
-              var $ = d.A.ZiI(1),
-                  e = ($.hKc(3), performance.now()),
-                  $ = (this.send($), performance.now() - e);
-              return 0 != $ ? e + $ : e
+        }
+        mKa(eventCreator) {
+          var ___defaultEvent;
+          if (typeof eventCreator == "string") {
+            (___defaultEvent = setDefaultEvt.A.ZiI(
+              1 + (eventCreator.length + 1),
+            )).hKc(11);
+            ___defaultEvent.qBs(eventCreator);
+            this.send(___defaultEvent);
           }
-          mKa($) {
-              var e;
-              "string" == typeof $ && ((e = d.A.ZiI(1 + ($.length + 1))).hKc(11), e.qBs($), this.send(e))
+        }
+        uot(urlEncodedUrl) {
+          urlEncodedUrl = (0, defaultEventS.x4)(
+            encodeURIComponent(urlEncodedUrl),
+          );
+          var urlEncodedEvt = setDefaultEvt.A.ZiI(1 + urlEncodedUrl.length);
+          urlEncodedEvt.hKc(99);
+          urlEncodedEvt.zlO(urlEncodedUrl);
+          this.send(urlEncodedEvt);
+        }
+        adz(_conditionalHo) {
+          var ____defaultEvent = setDefaultEvt.A.ZiI(
+            _conditionalHo != null ? 3 : 1,
+          );
+          ____defaultEvent.hKc(2);
+          if (typeof _conditionalHo == "number") {
+            ____defaultEvent.Ylk(_conditionalHo);
           }
-          uot($) {
-              $ = (0, u.x4)(encodeURIComponent($));
-              var e = d.A.ZiI(1 + $.length);
-              e.hKc(99), e.zlO($), this.send(e)
+          this.send(____defaultEvent);
+        }
+        NTE() {
+          this.VFc = performance.now();
+          var defaultAsyncW = setDefaultEvt.A.ZiI(1);
+          defaultAsyncW.hKc(1);
+          (0, defaultEvent.hJ)(defaultAsyncW, this.context);
+          this.send(defaultAsyncW);
+        }
+        DQA() {
+          this.rHk(10);
+        }
+        jjW(_eventType) {
+          var hasEventArgs = arguments.length !== 0;
+          var ____________eventData = setDefaultEvt.A.ZiI(hasEventArgs ? 2 : 1);
+          ____________eventData.hKc(21);
+          if (hasEventArgs) {
+            ____________eventData.hKc(+_eventType);
           }
-          adz($) {
-              var e = d.A.ZiI(null != $ ? 3 : 1);
-              e.hKc(2), "number" == typeof $ && e.Ylk($), this.send(e)
-          }
-          NTE() {
-              this.VFc = performance.now();
-              var $ = d.A.ZiI(1);
-              $.hKc(1), (0, i.hJ)($, this.context), this.send($)
-          }
-          DQA() {
-              this.rHk(10)
-          }
-          jjW($) {
-              var e = 0 !== arguments.length,
-                  t = d.A.ZiI(e ? 2 : 1);
-              t.hKc(21), e && t.hKc(+$), this.send(t)
-          }
-          JOy($) {
-              var e = d.A.ZiI(2);
-              e.hKc(17), e.hKc($), this.send(e)
-          }
-          get bjN() {
-              return this.context === s.A.yNT || !this.game.pEA(s.A.yNT)
-          }
-          get rSL() {
-              return this.game.eWI[0 == this.context ? 1 : 0]
-          }
+          this.send(____________eventData);
+        }
+        JOy(onHKcEvent) {
+          var modifiedEvent = setDefaultEvt.A.ZiI(2);
+          modifiedEvent.hKc(17);
+          modifiedEvent.hKc(onHKcEvent);
+          this.send(modifiedEvent);
+        }
+        get bjN() {
+          return (
+            this.context === defaultEvent7.A.yNT ||
+            !this.game.pEA(defaultEvent7.A.yNT)
+          );
+        }
+        get rSL() {
+          return this.game.eWI[this.context == 0 ? 1 : 0];
+        }
       }
-  },
+    },
     6883(getInt8, getByte, _______fetchData) {
       _______fetchData.d(getByte, {
         A: () => OffsetManager,
