@@ -8658,7 +8658,11 @@
   
               // Enable the "Play as tab" button after WebSocket is open
               const playButton = document.querySelector(".play.button");
-              playButton.disabled = false; // Enable the button when connection is established
+              if (playButton) {
+                  playButton.disabled = false; // Enable the button
+              } else {
+                  console.error("Play button element not found");
+              }
           };
   
           websocket.onmessage = function (event) {
@@ -8723,10 +8727,6 @@
           let productTotal;
           let __result = m(_____isAnonymous);
           let _______isAnonymous = clickTally(_____isAnonymous);
-          
-          
-  
-  
         return {
           c() {
             _________________placeholder = (0, tallyCount.ND4)("div");
